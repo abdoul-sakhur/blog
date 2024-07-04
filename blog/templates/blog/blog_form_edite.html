@@ -1,0 +1,16 @@
+{% extends "base.html" %}
+{% block title %}
+    {{post.title}}
+{% endblock title %}
+{% block content %}
+{% load static %}
+<div class="col-md-8 col-ms-12 form-container" >
+<h1 class="text-center fw-bold text-dark">Editer l'article: <strong>{{post.title}}</strong></h1>
+    <form action="" method="post" class="form-group p-3 mt-2 bg-white shadow-sm rounded-2 edit_creat_form"  enctype="multipart/form-data">
+    {% csrf_token %}
+        {{form}}
+        <button type="submit" class="edit_create_btn">Editer <img src="{% static 'icons/send.svg' %}" style="width: 20px; height: 20px; margin-left: 10px;" alt=""></button>
+    </form>
+    {% endblock content %}
+
+</div>

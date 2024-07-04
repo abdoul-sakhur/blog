@@ -1,0 +1,134 @@
+{% extends "base.html" %}
+{% load static %}  
+{%block title%}
+blog
+{%endblock title%}
+
+{%block carroussel %}
+
+   <div class="container-fluid rounded-2  w-80 mt-3">
+   <div id="carouselExampleCaptions" class="carousel slide rounded-2" data-bs-ride="carousel">
+    <div class="carousel-indicators">
+      <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
+      <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="1" aria-label="Slide 2"></button>
+      <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="2" aria-label="Slide 3"></button>
+    </div>
+    <div class="carousel-inner  rounded-4">
+   
+      <div class="carousel-item active">
+        <img src="{% static 'images/bg8.jpg' %}" class="d-block w-100" alt="..." style="height: 250px !important;">
+        <div class="carousel-caption d-none d-md-block">
+          <h5 class="fw-bold " style=" text-shadow: 0px 0px 4px rgba(0,0,0,0.79);">IA : Vers des Avancées Majeures et Défis Nouveaux</h5>
+          <p style=" text-shadow: 0px 0px 4px rgba(0,0,0,0.79);">En 2024, l'intelligence artificielle a franchi plusieurs étapes significatives, consolidant son rôle croissant dans divers domaines. </p>
+        </div>
+      </div>
+      <div class="carousel-item  rounded-4">
+        <img src="{% static 'images/bg3.jpg' %}" class="d-block w-100" alt="..." style="height: 250px !important;">
+        <div class="carousel-caption d-none d-md-block">
+          <h5 class="fw-bold " style=" text-shadow: 0px 0px 4px rgba(0,0,0,0.79);">Codage: Vers des Méthodes Plus Accessibles et Polyvalentes</h5>
+          <p style=" text-shadow: 0px 0px 4px rgba(0,0,0,0.79)       ;">Le paysage du codage a continué à évoluer rapidement, avec une focalisation accrue sur la simplification et l'accessibilité des langages de programmation.</p>
+        </div>
+      </div>
+      <div class="carousel-item  rounded-4">
+        <img src="{% static 'images/bg6.jpg' %}" class="d-block w-100" alt="..." style="height: 250px !important;">
+        <div class="carousel-caption d-none d-md-block">
+          <h5 class="fw-bold " style=" text-shadow: 0px 0px 4px rgba(0,0,0,0.79);">Le Bitcoin : Entre Maturité et Nouvelles Perspectives</h5>
+          <p style=" text-shadow: 0px 0px 4px rgba(0,0,0,0.79);">Le Bitcoin a continué à occuper une place de premier plan dans le paysage financier mondial, tout en traversant des phases de maturité et d'innovation.</p>
+        </div>
+      </div>
+    </div>
+    <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide="prev">
+      <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+      <span class="visually-hidden">Previous</span>
+    </button>
+    <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide="next">
+      <span class="carousel-control-next-icon" aria-hidden="true"></span>
+      <span class="visually-hidden">Next</span>
+    </button>
+  </div>
+  </div>    
+{% endblock carroussel %}
+
+{% block content %}
+<div class="col-md-12 col-sm-12">
+    <h1 class="text-center rounded-2 text-dark"> La tend<strong>ance</strong> </h1>
+</div>
+
+<div class="col-md-12 col-sm-12 d-flex justify-content-center flex-wrap  gap-4">
+    {% for post in posts%}
+    <div class="card shadow-sm rounded-2 border-0 p-3  " style="max-width: 450px; height: 120vh;  ">
+    <img src="{{post.picture.url}}" style="height: 270px;" alt="" class="img-fluid w-100 rounded">
+    <span class="w-50 rounded-2 mt-2 text-center text-white span_categorie">{{post.category.title}} </span>
+        <h1 class="text-start">{{post.title}}</h1>
+        <div class="text-container">
+            <p>{{post.content}}</p>
+        </div>
+        <div class="d-flex  mt-3 gap-3 info-container ">
+            <img src="{{post.author.profile.picture.url}}" style="width: 50px; height: 50px; border: 2px solid #3C949E;" alt="" class="img-fluid rounded-4 bg-black">
+            <div class="text-start">
+                <h6 class="text-start"> - Publie par  {{post.author.username}}</h6>
+                <span class="text-secondary">{{post.last_updated}}</span>
+
+            </div>
+        </div>
+        
+          
+          <a class="btn   mt-2 voir-article "  href="{% url 'posts:detail' slug=post.slug %}" style="bottom: 0px; display: block; "> voir l'article</a>
+   
+        {% if request.user.is_authenticated and request.user.is_superuser %}
+            <div class="d-flex justify-content-center mt-3 gap-1">
+                <a class="btn btn-info text-white fw-bold" href="{% url 'posts:editer' slug=post.slug %}"><img src="{% static 'icons/pen.svg' %}" alt="" style="width: 20px; height: 20px;"></a>
+                <a class="btn btn-danger text-white fw-bold" href="{% url 'posts:delete' slug=post.slug %}"><img src="{% static 'icons/trash.svg' %}" alt="" style="width: 20px; height: 20px;"></a>
+            </div>
+        {% endif %}
+    </div>
+    {%endfor%}
+</div>
+<div class="col-md-12 col-sm-12  mt-2 rounded-2 p-3 ads">
+    <h1 class="text-center rounded-2 text-white" > Les avancées  technologiques en 2024. </h1>
+</div>
+<div class="col-md-12 col-sm-12 d-flex justify-content-center flex-wrap  gap-4">
+  {% for post in posts%}
+  <div class="card shadow-sm rounded-2 border-0 p-3  " style="max-width: 450px; height: 120vh;">
+  <img src="{{post.picture.url}}" alt="" style="height: 270px;" class="img-fluid w-100 rounded">
+  <span class="w-50 rounded-2 mt-2 text-center text-white span_categorie">{{post.category.title}} </span>
+      <h1 class="text-start">{{post.title}}</h1>
+      <div class="text-container ">
+          <p>{{post.content}}</p>
+                  </div>
+      <div class="d-flex  mt-3 gap-3 info-container">
+          <img src="{{post.author.profile.picture.url}}" style="width: 50px; height: 50px; border: 2px solid #3C949E;" alt="" class="img-fluid rounded-4 bg-black">
+          <div class="text-start">
+              <h6 class="text-start"> - Publie par  {{post.author.username}}</h6>
+              <span class="text-secondary">{{post.last_updated}}</span>
+
+          </div>
+      </div>
+      <a class="btn  mt-2 voir-article "  href="{% url 'posts:detail' slug=post.slug %}"> voir l'article</a>
+      {% if request.user.is_authenticated and request.user.is_superuser %}
+      <div class="d-flex justify-content-center mt-3 gap-1">
+          <a class="btn btn-info text-white fw-bold" href="{% url 'posts:editer' slug=post.slug %}"><img src="{% static 'icons/pen.svg' %}" alt="" style="width: 20px; height: 20px;"></a>
+          <a class="btn btn-danger text-white fw-bold" href="{% url 'posts:delete' slug=post.slug %}"><img src="{% static 'icons/trash.svg' %}" alt="" style="width: 20px; height: 20px;"></a>
+      </div>
+  {% endif %}
+  </div>
+  {%endfor%}
+</div>
+<div class="col-md-6 col-sm-12 mt-3 form-container">
+    <form action="{% url 'posts:message' %}" class="form-group p-3 mt-2 bg-white shadow-sm rounded-2" method="POST">
+      {% csrf_token %}
+        <h1 class="text-center">Laissez-nous un <strong>message</strong> </h1>
+        <label for="id">Nom </label>
+        <input type="text" class="form-control " name="name">
+        <label for="">Prenom</label>
+        <input type="text" class="form-control " name="surname">
+        <label for="">Email</label>
+        <input type="email" class="form-control " name="email">
+        <label for="">decrivez-nous</label>
+        <textarea name="description" id="" class="form-control">
+
+        </textarea>
+        <button type="submit" class="btn btn-envoyer mt-2">Envoyer <img src="{% static 'icons/send.svg' %}" style="width: 20px; height: 20px; margin-left: 10px;" alt=""></button>
+    </form>
+</div>
+{% endblock content %}

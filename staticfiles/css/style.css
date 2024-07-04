@@ -1,0 +1,48 @@
+
+ 
+ body{
+    background-color: #F1F9FB;
+ }
+h1{
+    font-weight: bold;
+}
+span{
+    width: 300px;
+    text-align: center;
+    overflow: hidden;
+}
+
+.carousel-item img{
+    height: 250px !important;
+}
+.voir-article{
+    background-color: #3C949E;
+    color: #fff;
+    font-weight: bold;
+}
+.span_categorie{
+    background-color: #3C949E;
+    color: #fff;
+    font-weight: bold;
+}
+
+input {
+    box-shadow:none !important;
+}
+
+.form-container {
+    margin: 0 auto;
+}
+strong{
+    color: #3C949E;
+}
+footer{
+    background-color: #3c949e42;
+}
+hr{
+    color: #fff;
+}
+.txt-container{
+    background-color: #3c949e29;
+}
+

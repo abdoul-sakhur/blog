@@ -1,0 +1,31 @@
+{% extends "base.html" %}
+{% block title %}
+  Creer un article
+{% endblock title %}
+{% block content %}
+{% load static %}
+<div class="col-md-8 col-ms-12 form-container bg-white p-4 rounded-2" >
+    <h1 class="text-center fw-bold  ">Creer un <strong>article</strong></h1>
+<form action="" method="post" enctype="multipart/form-data">
+{% csrf_token %}
+<label for="title" >Titre de <strong>l'article</strong> </label>
+<input type="text" class="form-control" name="title" id="title">
+<label for="category"><strong>Categorie</strong> </label>
+<select class="form-control " name="category" id="category">
+    {% for category in categories %}
+    <option value="{{ category.id }}">{{ category.title }}</option>
+{% endfor %}
+</select>
+<label for="published" class="form-check-label" ><strong>Publier</strong> </label>
+<input type="checkbox" class="form-check-input" name="published" id="title" value="1">
+<label for="published" ><strong>Contenu</strong> </label>
+<textarea name="content" id="" class="form-control"></textarea>
+<label for="description" ><strong>Description</strong></label>
+<textarea name="description" id="" class="form-control"></textarea>
+<label for="picture" >Choisir une <strong>image</strong> </label>
+<input type="file"name='picture'class="form-control" >
+
+    <button type="submit" class="edit_create_btn">Creer <img src="{% static 'icons/send.svg' %}" style="width: 20px; height: 20px; margin-left: 10px;" alt=""></button>
+</form>
+</div>
+{% endblock content %}

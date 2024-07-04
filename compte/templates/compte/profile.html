@@ -1,0 +1,23 @@
+{% extends "base.html" %}
+{% block title %}
+    profile
+{% endblock title %}
+{% block content  %}
+{% load static %}
+<div class="col-md-6 shadow-sm col-ms-12 form-container bg-white p-4 rounded-2 mt-4" >
+    <h1 class="text-center fw-bold  "><strong>PROFILE</strong></h1>
+    <img src="{{user.profile.picture.url}}" class="img-fluid" alt="" style="border: 3px solid #3C949E; width: 100px; height: 100px; border-radius: 50%; margin-left: 40%; ">
+    <form  method="post" action="{% url 'compte:update_profile' id=request.user.id %}" class="mt-1" enctype="multipart/form-data">
+    {% csrf_token %}
+    
+    <span class="form-control"> <label for="username" >Nom d'<strong>utilisateur</strong> </label> :   {{user.username}}</span>
+    <label for="bio">La <strong>biographie</strong> </label>
+    <textarea name="bio" id="" class="form-control"> {{user.profile.bio}}</textarea>
+    <label for="location">La <strong>localisation</strong> </label>
+    <input type="text" class="form-control " name="location" id="location" value="{{user.profile.location}}">
+    <label for="picture" >Choisir une <strong>image</strong> </label>
+    <input type="file"name='picture'class="form-control">
+        <button type="submit" class="edit_create_btn">Modifier <img src="{% static 'icons/send.svg' %}" style="width: 20px; height: 20px; margin-left: 10px;" alt=""></button>
+    </form>
+    </div>
+{% endblock content  %}

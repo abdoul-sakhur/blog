@@ -1,0 +1,31 @@
+{% extends "base.html" %}
+{% block title %}
+Detail
+{% endblock title %}
+{% load static %}
+{% block content %}
+<div class=" container-fluid w-100 " style="height: 350px !important;">
+    <img src="{{post.picture.url}}" alt="" class="d-block rounded-2 w-100 h-100">
+</div>
+<h1 class="text-center"><strong>{{post.title}}</strong></h1>
+<div class="col-md-8 col-sm-12 W-80 p-3 shadow-sm txt-container" style="margin: 0 auto;">
+
+    <span>{{post.description}}</span>
+    <span>{{post.content}}</span>
+    <span>{{post.description}}</span>
+    <span>{{post.content}}</span>
+    <span>{{post.description}}</span>
+    <span>{{post.content}}</span>
+    <span>{{post.description}}</span>
+    <span>{{post.content}}</span>
+    <div class="d-flex  mt-3 gap-3">
+        <img src="{% static 'images/pic1.jpg' %}" style="width: 50px; height: 50px;" alt="" class="img-fluid rounded-4 bg-black">
+        <div class="text-start">
+            <h6 class="text-start">- publie par {{post.author.username}}</h6>
+            <span class="text-secondary">{{post.last_updated}}</span>
+
+        </div>
+    </div>
+</div>
+
+{% endblock content %}

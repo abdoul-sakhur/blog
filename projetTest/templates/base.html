@@ -1,0 +1,129 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+   
+    <title> {%block title%}{%endblock title%}</title>
+    
+   
+    <link rel="stylesheet" href="{% static 'css/style.css' %}">
+    <link rel="stylesheet" href="{% static 'css/bootstrap.min.css' %}">
+</head>
+<body>
+
+<div class="container">
+   <nav class="navbar navbar-expand-lg rounded-4 bg-light shadow-lg mt-2 w-100">
+    <div class="container-fluid">
+        <a class="navbar-brand fw-bold fs-3" href="#" >TECH-<strong style="color: #3C949E;">SAR</strong><strong style="color:#3C949E;">BA</strong></a>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent"
+            aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+            <ul class="navbar-nav me-auto mb-2 mb-lg-0" style="margin-left:20%; ">
+                <li class="nav-item">
+                    <a class="nav-link fw-bold  " id="links" aria-current="page" href="{% url 'posts:index' %} ">Accueil</a>
+                </li>
+                {% for category in categories %}
+                    
+                <li class="nav-item ">
+                    <a class="nav-link fw-bold "id="links" href="{% url 'posts:category' id=category.id  %}">
+                        {{category.title}}
+                    </a>
+                </li>
+                {% endfor %}
+              
+             
+               
+                <li class="nav-item">
+                    <a class="nav-link fw-bold" id="links" href="{% url 'posts:apropos' %}">A propos de nous</a>
+                </li>
+          
+                {% if request.user.is_authenticated %}
+                    <li class="nav-item">
+                     <a href="{% url 'posts:create'  %}" style="background-color: #3c949e93;" class="nav-link fw-bold btn rounded-3 border-0 text-white"> <img src="{% static 'icons/pen.svg' %}" alt="" style="width: 20px; height: 20px;"></a>
+                      </li>
+                      <li class="nav-item gap-1">
+                    
+                        <a href="{% url 'compte:profile'  id=request.user.id %}" style="background-color: #3c949e93; margin-left: 10px;" class="nav-link fw-bold btn rounded-3 border-0 text-white">  <img src="{% static 'icons/user.svg' %}" style="width: 20px; height: 20px;" alt=""></a>
+                        
+                   </li>
+                    <li class="nav-item">
+                        <form action="" method="post">
+                            {% csrf_token %}
+                            <a href="{% url 'compte:deconnexion'  %}" style="background-color: #c04e4e; margin-left:10px;" class="nav-link fw-bold btn rounded-3 border-0  text-white">  <img src="{% static 'icons/logout.svg' %}" style="width: 20px; height: 20px;" alt=""></a>
+                    
+                        </form>
+                       </li>
+               {% else %} 
+                <li class="nav-item">
+                    <a class="nav-link fw-bold nav-link fw-bold btn rounded-3 border-0 text-white "  id="links" href="{% url 'compte:inscription' %}" style="background-color: #3c949e93;" ><img src="{% static 'icons/adduser.svg' %}" style="width: 20px; height: 20px;" alt=""> </a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link fw-bold nav-link fw-bold btn rounded-3 border-0 text-white "  id="links" href="{% url 'compte:connexion' %}" style="background-color: #3c949e93; margin-left: 10px;" ><img src="{% static 'icons/logout.svg' %}" style="width: 20px; height: 20px;" alt=""></a>
+                </li>
+                {% endif %}
+            </ul>
+            <div class="container-btns d-flex gap-3">
+              
+            </div>
+        </div>
+    </div>
+</nav>
+</div>
+{% block carroussel %}
+
+{% endblock%}
+
+    <div class="container-fluid w-100 mt-2" >
+        {% block content %}
+
+        {% endblock%}
+    </div>
+
+    <div class="container-fluid w-100 mt-4">
+        {% block footer %}
+        <footer class="rounded-2 p-3 shadow-lg">
+            <div class="footer w-100 d-flex mt-3 justify-content-between">
+                <div class="container-socials">
+                    <h4 class="text-center text-light fs-2"> Nos reseaux sociaux </h4>
+                    <li><a href=""></a><img src="{% static 'images/intagram.png' %}" style="width: 35px; height: 35px; margin: 5px; border-radius: 10px;" alt=""> </li>
+                    <li><a href=""></a><img src="{% static 'images/facebook.png' %}" style="width: 35px; height: 35px; margin: 5px; border-radius: 10px;" alt=""></li>
+                    <li><a href=""></a><img src="{% static 'images/twitter.png' %}" style="width: 35px; height: 35px; margin: 5px; border-radius: 10px;" alt=""></li>
+                    <li><a href=""></a><img src="{% static 'images/youtube.png' %}" style="width: 35px; height: 35px; margin: 5px; border-radius: 10px;" alt=""></li>
+               
+                </div>
+             
+                <div class="container-socials">
+                    <h4 class="text-center text-light fs-2"> Contacts </h4>
+                    <li><a href=""></a>Abidjan , cocody rue E44</li>
+                    <li><a href=""></a>+2250170998499</li>
+                    <li><a href=""></a>+2250170998499</li>
+                    <li><a href=""></a>+2250170998499</li>
+                    <li><a href=""></a>+2250170998499</li>
+                    
+               
+                </div>
+             
+                <div class="container-socials">
+                    <h4 class="text-center text-light fs-2"> Partenaires </h4>
+                    <li class="list-group-item"><a href=""></a><img src="{% static 'images/wave.png' %}" style="width: 35px; height: 35px; margin: 5px; border-radius: 10px;" alt=""></li>
+                    <li class="list-group-item"><a href=""></a><img src="{% static 'images/orange.png' %}" style="width: 35px; height: 35px; margin: 5px; border-radius: 10px;" alt=""></li>
+                    <li class="list-group-item"><a href=""></a><img src="{% static 'images/infinix.png' %}" style="width: 35px; height: 35px; margin: 5px; border-radius: 10px;" alt=""></li>
+                    <li class="list-group-item"><a href=""></a><img src="{% static 'images/tecno.png' %}" style="width: 35px; height: 35px; margin: 5px; border-radius: 10px;" alt=""></li>
+               
+                </div>
+           
+            </div>
+            <hr>
+          tous droits reserves 2024.
+        </footer>
+        {% endblock footer %}
+    </div>
+
+    <script src="{% static 'js/bootstrap.min.js' %}"></script>
+    <script src="{% static 'js/bootstrap.bundle.min.js' %}"></script>
+</body>
+</html>

@@ -1,0 +1,20 @@
+{% extends "base_log.html" %}
+{% block title %}
+    Connexion
+{% endblock title %}
+{% block content %}
+{% load static %}
+<div class="col-md-6 shadow-sm col-ms-12 form-container bg-white p-4 rounded-2 mt-4" >
+    <h1 class="text-center fw-bold  ">conn<strong>exion</strong></h1>
+    <form  method="post" class="mt-1">
+    {% csrf_token %}
+    <label for="username" >Nom d'<strong>utilisateur</strong> </label>
+    <input type="text" class="form-control " name="username" id="username">
+    <label for="password">Mot de <strong>passe</strong> </label>
+    <input type="password" class="form-control " name="password" id="password">
+    
+
+        <button type="submit" class="edit_create_btn">Se connecter <img src="{% static 'icons/login.svg' %}" style="width: 20px; height: 20px; margin-left: 10px;" alt=""></button>
+    </form>
+    </div>
+{% endblock content %}

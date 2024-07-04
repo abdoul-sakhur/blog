@@ -1,0 +1,40 @@
+{% extends "base.html" %}
+{% block title %}
+A propos
+{% endblock title %}
+{% block content  %}
+{% load static %}
+<div class="row w-100 ">
+
+<div class="col-md-6 col-sm-12 mt-4 mb-2  bg-white">
+    <h1 class="text-center fw-bold ">A propos de  <strong class="text-decoration-underline">nous</strong></h1>
+    <div class="text-about-container">
+        
+À propos de nous
+Bienvenue sur notre blog tech ! Nous publions régulièrement des articles sur les dernières nouveautés et tendances technologiques. Notre objectif est de fournir des informations pertinentes, des tutoriels pratiques, des critiques de produits et des analyses de marché.
+
+Notre Mission
+Nous visons à devenir une source incontournable pour les amateurs de technologie, en offrant du contenu de qualité et bien recherché.
+
+Notre Équipe
+Composée de passionnés de technologie et de professionnels du secteur, notre équipe apporte son expertise unique à chaque article.
+
+Ce Que Nous Offrons
+Articles de Fond : Analyses détaillées des tendances technologiques.
+Tutoriels : Guides pratiques sur les outils et technologies récents.
+Critiques de Produits : Évaluations honnêtes de gadgets et logiciels.
+Actualités : Mises à jour sur les dernières nouvelles technologiques.
+Nous espérons que vous apprécierez notre contenu. N'hésitez pas à nous contacter pour toute question ou suggestion. Merci de nous lire et de faire partie de notre communauté tech !
+
+
+
+
+
+
+    </div>
+</div>
+<div class="col-md-6 col-sm-12 mt-4 ">
+    <img src="{% static 'images/about_bg.svg' %}" alt="" class="img-fluid">
+</div>
+</div>
+{% endblock content  %}

@@ -1,0 +1,159 @@
+
+ 
+ body{
+    background-color: #F1F9FB !important;
+ }
+h1{
+    font-weight: bold;
+}
+span{
+    width: 300px;
+    text-align: center;
+    overflow: hidden;
+}
+.carousel-item h1 {
+    text-shadow: 0px 0px 4px rgba(0,0,0,0.79)       ;
+}
+.carousel-item img{
+    height: 250px !important;
+    }
+
+.card{
+    position: relative !important;
+    padding-bottom: 40px 40px;
+
+}
+.voir-article{
+    background-color: #3C949E !important;
+    color: #fff !important;
+    font-weight: bold !important;
+    position: absolute !important;
+    bottom: 20px !important;
+    left: 70%;
+    transform: translateX(-50);
+    
+   
+}
+.text-container{
+    display: inline-block;
+    height: 240px;
+    overflow: hidden;
+  
+
+    
+}
+ 
+
+.btn-envoyer{
+    background-color: #3C949E !important;
+    color: #fff !important;
+    font-weight: bold !important;
+}
+.info-container{
+    position: absolute !important;
+    bottom: 20px ;
+}
+.span_categorie{
+    background-color: #3C949E;
+    color: #fff;
+    font-weight: bold;
+}
+
+input {
+    box-shadow:none !important;
+}
+
+.form-container {
+    margin: 0 auto;
+}
+strong{
+    color: #3C949E;
+}
+footer{
+    background-color: #3c949e42;
+}
+hr{
+    color: #fff;
+}
+.txt-container{
+    background-color: #3c949e29;
+}
+
+input , textarea {
+ display: block;
+ padding: 1rem;
+ width:100%;
+ border: none;
+ border-radius: 15px;
+ box-shadow: 10px 1px black;
+ -webkit-box-shadow: 3px 4px 36px -23px rgba(0,0,0,0.75);
+-moz-box-shadow: 3px 4px 36px -23px rgba(0,0,0,0.75);
+box-shadow: 3px 4px 36px -23px rgba(0,0,0,0.75);
+outline: none;
+
+
+}
+label{
+    font-size: 15px;
+    font-weight: bold;
+
+}
+.edit_create_btn{
+    width: 200px;
+    height: auto;
+    color: #fff;
+    border-radius: 15px;
+    border: none;
+    -webkit-box-shadow: 3px 4px 36px -23px rgba(0,0,0,0.75);
+    -moz-box-shadow: 3px 4px 36px -23px rgba(0,0,0,0.75);
+    box-shadow: 3px 4px 36px -23px rgba(0,0,0,0.75);
+    background-color: #3C949E;
+    
+    position: relative;
+    left: 40%;
+    top: 10px; 
+    padding: 8px; 
+
+}
+
+input[type="file"]{
+        border: 1px solid black;
+}
+ textarea {
+    box-shadow: none !important;
+    
+ }
+.ads{
+    background-image: url('../images/bg1.jpg');
+    background-position: center center;
+    background-repeat: no-repeat;
+    background-size: cover;
+
+}
+
+.ads h1 {
+    font-weight: bold;
+    color: #F1F9FB;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+footer .container-socials li{
+    
+        list-style-type: none;
+        font-weight: bold;
+
+}
+footer .container-socials li a {
+    text-decoration: none;
+    font-weight: bold;
+}
