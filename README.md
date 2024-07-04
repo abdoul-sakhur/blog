@@ -13,3 +13,4 @@ Pour mettre en pratique mes compétences en Django, j'ai créé un blog dédié 
 ![inscription](https://github.com/abdoul-sakhur/blog/assets/126367134/6d53c5a2-bd06-4bd1-b347-d7d7b1b46ef7)
 ![profile](https://github.com/abdoul-sakhur/blog/assets/126367134/8c30b7dc-20d4-4fe8-8723-86bba8ccfa29)
 ![suppression](https://github.com/abdoul-sakhur/blog/assets/126367134/509c6fb5-68cc-45be-af2a-23e67a02d375)
+![creation](https://github.com/abdoul-sakhur/blog/assets/126367134/74fe63f4-dc2f-4e34-92d9-77d4b231cb58)
